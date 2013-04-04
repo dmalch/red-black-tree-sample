@@ -1,13 +1,9 @@
-from com.github.dmalch.binarySearchTree import BinarySearchTree
+class AbstractTreeTest(object):
+    def getTree(self):
+        pass
 
-__author__ = 'Dmitry'
-
-import unittest
-
-
-class TreeTest(unittest.TestCase):
     def testTree(self):
-        tree = BinarySearchTree()
+        tree = self.getTree()
         expectedValue = "1"
 
         tree.put(1, expectedValue)
@@ -15,7 +11,7 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(tree.get(1), expectedValue)
 
     def testTree2(self):
-        tree = BinarySearchTree()
+        tree = self.getTree()
         tree.put(1, "1")
         tree.put(2, "2")
 
@@ -23,7 +19,7 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(tree.get(2), "2")
 
     def testTree3(self):
-        tree = BinarySearchTree()
+        tree = self.getTree()
         tree.put(2, "2")
         tree.put(1, "1")
         tree.put(3, "3")
@@ -32,14 +28,10 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(tree.get(2), "2")
         self.assertEqual(tree.get(3), "3")
 
-    def testTree3(self):
-        tree = BinarySearchTree()
+    def testTree4(self):
+        tree = self.getTree()
         tree.put(1, "1")
         tree.put(2, "2")
         tree.put(2, "3")
 
         self.assertEqual(tree.get(2), "3")
-
-
-if __name__ == '__main__':
-    unittest.main()
