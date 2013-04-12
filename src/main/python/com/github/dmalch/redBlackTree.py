@@ -18,7 +18,8 @@ class RedBlackTree(AbstractTree):
 
         elif key > node._key:
             node._right = self._put(node._right, key, value)
-
+            if node._right._color:
+                return node.rotateLeft()
         else:
             node._value = value
 
