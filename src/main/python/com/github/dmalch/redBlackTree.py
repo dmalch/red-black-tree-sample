@@ -15,10 +15,15 @@ class RedBlackTree(AbstractTree):
 
         if key < node._key:
             node._left = self._put(node._left, key, value)
+            if node._left._color and node._left._left and node._left._left._color:
+                rotated = node.rotateRight()
+                rotated._left._color = False
+                rotated._right._color = False
+                return rotated
 
         elif key > node._key:
             node._right = self._put(node._right, key, value)
-            if node._right._color and node._left._color:
+            if node._right._color and node._left and node._left._color:
                 node._left._color = False
                 node._right._color = False
             elif node._right._color:

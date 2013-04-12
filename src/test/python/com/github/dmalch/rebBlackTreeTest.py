@@ -66,6 +66,20 @@ class TreeTest(unittest.TestCase, AbstractTreeTest):
         self.assertEquals(root._left._value, "1")
         self.assertEquals(root._left._color, False)
 
+    def testInsertIntoAThreeNodeWhenKeyIsSmaller(self):
+        tree = self.getTree()
+        tree.put(3, "3")
+        tree.put(2, "2")
+        tree.put(1, "1")
+        root = tree._root
+
+        self.assertEquals(root._value, "2")
+        self.assertEquals(root._color, False)
+        self.assertEquals(root._right._value, "3")
+        self.assertEquals(root._right._color, False)
+        self.assertEquals(root._left._value, "1")
+        self.assertEquals(root._left._color, False)
+
     def testRotateLeft(self):
         node = Node(1, "1", False)
         node._left = Node(2, "2", False)
