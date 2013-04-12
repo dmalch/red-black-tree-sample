@@ -12,6 +12,18 @@ class TreeTest(unittest.TestCase, AbstractTreeTest):
         tree = RedBlackTree()
         return tree
 
+    def testInsertIntoASingleTwoNode(self):
+        tree = self.getTree()
+        tree.put(2, "2")
+        tree.put(1, "1")
+
+        root = tree._root
+
+        self.assertEquals(root._value, "2")
+        self.assertEquals(root._color, False)
+        self.assertEquals(root._left._value, "1")
+        self.assertEquals(root._left._color, True)
+
     def testRotateLeft(self):
         node = Node(1, "1", False)
         node._left = Node(2, "2", False)

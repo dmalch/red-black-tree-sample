@@ -1,4 +1,5 @@
 from com.github.dmalch.abstractTree import AbstractTree
+from com.github.dmalch.simpleNode import Node
 
 
 class BinarySearchTree(AbstractTree):
@@ -12,10 +13,10 @@ class BinarySearchTree(AbstractTree):
             return Node(key, value)
 
         if key < node._key:
-            node._left = Node(key, value)
+            node._left = self._put(node._left, key, value)
 
         elif key > node._key:
-            node._right = Node(key, value)
+            node._right = self._put(node._right, key, value)
 
         else:
             node._value = value
@@ -37,13 +38,3 @@ class BinarySearchTree(AbstractTree):
 
         else:
             return node._value
-
-class Node:
-    _key = None
-    _value = None
-    _left = None
-    _right = None
-
-    def __init__(self, key:int, value:str):
-        self._key = key
-        self._value = value
