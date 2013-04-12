@@ -7,4 +7,3 @@ class RedBlackTree(AbstractTree):
 
     def get(self, key:int):
         super().get(key)
-

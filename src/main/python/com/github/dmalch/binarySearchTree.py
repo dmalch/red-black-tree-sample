@@ -1,4 +1,4 @@
-from com.github.dmalch.abstractTree import AbstractTree, Node
+from com.github.dmalch.abstractTree import AbstractTree
 
 
 class BinarySearchTree(AbstractTree):
@@ -37,3 +37,13 @@ class BinarySearchTree(AbstractTree):
 
         else:
             return node._value
+
+class Node:
+    _key = None
+    _value = None
+    _left = None
+    _right = None
+
+    def __init__(self, key:int, value:str):
+        self._key = key
+        self._value = value
