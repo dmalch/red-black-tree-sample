@@ -19,6 +19,7 @@ class RedBlackTree(AbstractTree):
                 rotated = node.rotateRight()
                 rotated._left._color = False
                 rotated._right._color = False
+                rotated._color = True
                 return rotated
 
         elif key > node._key:
