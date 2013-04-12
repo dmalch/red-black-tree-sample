@@ -18,13 +18,28 @@ class RedBlackTree(AbstractTree):
 
         elif key > node._key:
             node._right = self._put(node._right, key, value)
-            if node._right._color:
+            if node._right._color and node._left._color:
+                node._left._color = False
+                node._right._color = False
+            elif node._right._color:
                 return node.rotateLeft()
         else:
             node._value = value
 
         return node
 
-
     def get(self, key:int):
-        super().get(key)
+        return self._get(self._root, key)
+
+    def _get(self, node:Node, key:int):
+        if node is None:
+            return None
+
+        if key < node._key:
+            return self._get(node._left, key)
+
+        elif key > node._key:
+            return self._get(node._right, key)
+
+        else:
+            return node._value
